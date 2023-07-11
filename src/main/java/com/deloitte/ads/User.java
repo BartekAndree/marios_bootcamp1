@@ -2,7 +2,6 @@ package com.deloitte.ads;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class User {
 
@@ -14,8 +13,8 @@ public class User {
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        givenMarios = new ArrayList<>();
-        receivedMarios = new ArrayList<>();
+        this.givenMarios = new ArrayList<>();
+        this.receivedMarios = new ArrayList<>();
     }
     public void giveMariosToUser(User user, Marios marios){
         user.receivedMarios.add(marios);
@@ -23,5 +22,17 @@ public class User {
     public List<Marios> showUserReceivedMarios(){
         return receivedMarios;
     }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    @Override
+    public String toString(){
+        return this.firstName.toUpperCase()
+                + " "
+                + this.lastName.toUpperCase();
+    }
+
 
 }

@@ -2,17 +2,17 @@ package com.deloitte.ads;
 
 public class Marios {
 
-    public MariosType mariosType;
+    public String mariosType;
     public String mariosDescription;
-    public enum MariosType {
-        MARIOS1,
-        MARIOS2,
-        MARIOS3,
-        MARIOS4,
-        MARIOS5;
-    }
+    public static String[] mariosTypes = new String[]{
+            "Dziękuję Za Pomoc",
+            "Doceniam Twoją Pracę",
+            "Twoje Umiejętności Programistyczne Są Niesamowite",
+            "Cieszę Si ęŻe Mogę Pracować Z Takim Utalentowanym Programistą",
+            "Twoje Rozwiązania Są Zawsze Innowacyjne I Skuteczne",
+    };
 
-    public Marios(MariosType mariosType, String mariosDescription) {
+    public Marios(String mariosType, String mariosDescription) {
         this.mariosType = mariosType;
         this.mariosDescription = mariosDescription;
     }
@@ -21,4 +21,7 @@ public class Marios {
     public String toString() {
         return this.mariosDescription;
     }
+
+
+
 }
