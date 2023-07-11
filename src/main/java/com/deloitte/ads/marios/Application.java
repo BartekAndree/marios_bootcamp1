@@ -1,4 +1,4 @@
-package com.deloitte.ads;
+package com.deloitte.ads.marios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

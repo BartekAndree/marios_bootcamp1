@@ -1,30 +1,48 @@
-package com.deloitte.ads;
+package com.deloitte.ads.marios.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 
+    private int id;
     private String firstName;
     private String lastName;
     private List<Marios> givenMarios;
     private List<Marios> receivedMarios;
 
-    public User(String firstName, String lastName) {
+    public User(int id,String firstName, String lastName) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.givenMarios = new ArrayList<>();
         this.receivedMarios = new ArrayList<>();
     }
-    public void giveMariosToUser(User user, Marios marios){
-        user.receivedMarios.add(marios);
+
+    public int getId() {
+        return id;
     }
-    public List<Marios> showUserReceivedMarios(){
-        return receivedMarios;
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
         return lastName;
+    }
+
+    public List<Marios> getGivenMarios() {
+        return givenMarios;
+    }
+
+    public List<Marios> getReceivedMarios() {
+        return receivedMarios;
+    }
+    public void addGivenMarios(Marios marios){
+        this.givenMarios.add(marios);
+    }
+    public void addReceivedMarios(Marios marios){
+        this.receivedMarios.add(marios);
     }
 
     @Override
