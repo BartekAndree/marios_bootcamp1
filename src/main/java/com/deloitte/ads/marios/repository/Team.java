@@ -35,12 +35,12 @@ public class Team {
         return receivedMarios;
     }
 
-    public void addUserToTeam(User user){
+    public void addUserToTeam(User user) {
         this.members.add(user);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.name.toUpperCase();
     }
 }

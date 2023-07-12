@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User {
 
-    private int id;
+    private final int id;
     private String firstName;
     private String lastName;
     private List<Marios> givenMarios;

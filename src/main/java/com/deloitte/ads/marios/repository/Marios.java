@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 
 public class Marios {
 
-    private int id;
+    private final int id;
     private String type;
     private String comment;
     private LocalDateTime timestamp;
-    private User sender;
-    private User receiver;
+    private final User sender;
+    private final User receiver;
 
     public Marios(int id, String type, String comment,
                   User sender,
@@ -52,13 +52,13 @@ public class Marios {
         return this.type;
     }
 
-    public static String[] mariosTypes = new String[]{
-            "Dziękuję Za Pomoc",
-            "Doceniam Twoją Pracę",
-            "Twoje Umiejętności Programistyczne Są Niesamowite",
-            "Cieszę Si ęŻe Mogę Pracować Z Takim Utalentowanym Programistą",
-            "Twoje Rozwiązania Są Zawsze Innowacyjne I Skuteczne",
-    };
+//    public static String[] mariosTypes = new String[]{
+//            "Dziękuję Za Pomoc",
+//            "Doceniam Twoją Pracę",
+//            "Twoje Umiejętności Programistyczne Są Niesamowite",
+//            "Cieszę Si ęŻe Mogę Pracować Z Takim Utalentowanym Programistą",
+//            "Twoje Rozwiązania Są Zawsze Innowacyjne I Skuteczne",
+//    };
 
 
 }
