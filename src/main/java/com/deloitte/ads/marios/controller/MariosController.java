@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/marios")
@@ -16,7 +17,7 @@ public class MariosController {
     private MyService myService;
 
     @GetMapping("")
-    public List<Marios> getMarios() {
+    public Set<Marios> getMarios() {
         return myService.getAllMarios();
     }
     @PostMapping("/create")

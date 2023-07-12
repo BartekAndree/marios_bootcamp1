@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/user")
@@ -15,7 +16,7 @@ public class UserController {
     private MyService myService;
 
     @GetMapping("")
-    public List<User> getAllUsers(){
+    public Set<User> getAllUsers(){
         return this.myService.getAllUsers();
     }
 
