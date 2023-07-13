@@ -1,17 +1,28 @@
 package com.deloitte.ads.marios.repository;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity(name = "marios")
 public class Marios {
-
-    private final int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "type")
     private String type;
+    @Column(name = "comment")
     private String comment;
+    @Column(name = "time_stamp")
     private LocalDateTime timestamp;
-    private final User sender;
-    private final User receiver;
+    @Column(name = "sender")
+    @OneToOne(mappedBy = "user")
+    private User sender;
+    @Column(name = "receiver")
+    @OneToOne(mappedBy = "user")
+    private User receiver;
 
-    public Marios(int id, String type, String comment,
+    public Marios(Long id, String type, String comment,
                   User sender,
                   User receiver) {
         this.id = id;
@@ -22,7 +33,11 @@ public class Marios {
         this.receiver = receiver;
     }
 
-    public int getId() {
+    public Marios() {
+
+    }
+
+    public Long getId() {
         return id;
     }
 

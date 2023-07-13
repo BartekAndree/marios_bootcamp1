@@ -1,17 +1,31 @@
 package com.deloitte.ads.marios.repository;
 
+import jdk.jfr.Enabled;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(name = "user")
 public class User {
-
-    private final int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "given_marios")
+    @OneToMany(mappedBy = "marios",
+            cascade = {CascadeType.ALL})
     private List<Marios> givenMarios;
+    @Column(name = "received_marios")
+    @OneToMany(mappedBy = "marios",
+            cascade = {CascadeType.ALL})
     private List<Marios> receivedMarios;
 
-    public User(int id,String firstName, String lastName) {
+    public User(int id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,7 +33,11 @@ public class User {
         this.receivedMarios = new ArrayList<>();
     }
 
-    public int getId() {
+    public User() {
+
+    }
+
+    public Long getId() {
         return id;
     }
 
@@ -38,15 +56,17 @@ public class User {
     public List<Marios> getReceivedMarios() {
         return receivedMarios;
     }
-    public void addGivenMarios(Marios marios){
+
+    public void addGivenMarios(Marios marios) {
         this.givenMarios.add(marios);
     }
-    public void addReceivedMarios(Marios marios){
+
+    public void addReceivedMarios(Marios marios) {
         this.receivedMarios.add(marios);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.firstName.toUpperCase()
                 + " "
                 + this.lastName.toUpperCase();

@@ -21,11 +21,11 @@ public class MyService {
         User u2 = new User(2, "Kinga", "Banach");
         User u3 = new User(3, "Mateusz", "Zwierzlak");
         User u4 = new User(4, "Bartek", "Szymanski");
-        Marios m1 = new Marios(1, "Good job", "You are the best", u1, u2);
-        Marios m2 = new Marios(2, "Thanks", "You are the best", u1, u3);
-        Marios m3 = new Marios(3, "Nice to have you", "You are the best", u1, u4);
-        Marios m4 = new Marios(4, "Good job", "You are the best", u2, u1);
-        Marios m5 = new Marios(5, "Thanks", "You are the best", u2, u3);
+        Marios m1 = new Marios(1L, "Good job", "You are the best", u1, u2);
+        Marios m2 = new Marios(2L, "Thanks", "You are the best", u1, u3);
+        Marios m3 = new Marios(3L, "Nice to have you", "You are the best", u1, u4);
+        Marios m4 = new Marios(4L, "Good job", "You are the best", u2, u1);
+        Marios m5 = new Marios(5L, "Thanks", "You are the best", u2, u3);
         this.userSet = Sets.newHashSet(u1,u2,u3,u4);
         this.mariosSet = Sets.newHashSet(m1,m2,m3,m4,m5);
     }
@@ -82,8 +82,8 @@ public class MyService {
         return this.userSet;
     }
 
-    private int generateMariosId() {
-        return this.mariosSet.size() + 1;
+    private Long generateMariosId() {
+        return this.mariosSet.size() + 1L;
     }
     private int generateUserId(){ return this.userSet.size() + 1; }
 
