@@ -1,4 +1,4 @@
-package com.deloitte.ads.marios.repository;
+package com.deloitte.ads.marios.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -7,25 +7,30 @@ import java.time.LocalDateTime;
 public class Marios {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "type")
     private String type;
-    @Column(name = "comment")
     private String comment;
-    @Column(name = "time_stamp")
     private LocalDateTime timestamp;
-    @Column(name = "sender")
-    @OneToOne(mappedBy = "user")
+    @ManyToOne
+    @JoinColumn(name = "sender")
     private User sender;
-    @Column(name = "receiver")
-    @OneToOne(mappedBy = "user")
+    @ManyToOne
+    @JoinColumn(name = "receiver")
     private User receiver;
 
     public Marios(Long id, String type, String comment,
                   User sender,
                   User receiver) {
         this.id = id;
+        this.type = type;
+        this.comment = comment;
+        this.timestamp = LocalDateTime.now();
+        this.sender = sender;
+        this.receiver = receiver;
+    }
+    public Marios(String type, String comment,
+                  User sender,
+                  User receiver) {
         this.type = type;
         this.comment = comment;
         this.timestamp = LocalDateTime.now();

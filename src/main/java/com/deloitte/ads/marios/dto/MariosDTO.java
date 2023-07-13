@@ -1,24 +1,24 @@
-package com.deloitte.ads.marios.controller;
+package com.deloitte.ads.marios.dto;
 
 public class MariosDTO {
-    private int senderId;
-    private int receiverId;
+    private Long senderId;
+    private Long receiverId;
     private String type;
     private String comment;
 
-    public int getSenderId() {
+    public Long getSenderId() {
         return senderId;
     }
 
-    public void setSenderId(int senderId) {
+    public void setSenderId(Long senderId) {
         this.senderId = senderId;
     }
 
-    public int getReceiverId() {
+    public Long getReceiverId() {
         return receiverId;
     }
 
-    public void setReceiverId(int receiverId) {
+    public void setReceiverId(Long receiverId) {
         this.receiverId = receiverId;
     }
 

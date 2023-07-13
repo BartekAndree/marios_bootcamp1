@@ -1,9 +1,7 @@
-package com.deloitte.ads.marios.repository;
+package com.deloitte.ads.marios.entity;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Team {
     private int id;

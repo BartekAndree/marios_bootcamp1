@@ -1,4 +1,4 @@
-package com.deloitte.ads.marios.controller;
+package com.deloitte.ads.marios.dto;
 
 public class UserDTO {
     private String firstName;

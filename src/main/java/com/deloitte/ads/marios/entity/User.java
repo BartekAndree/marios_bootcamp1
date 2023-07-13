@@ -1,32 +1,32 @@
-package com.deloitte.ads.marios.repository;
+package com.deloitte.ads.marios.entity;
 
-import jdk.jfr.Enabled;
+import com.deloitte.ads.marios.entity.Marios;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "user")
+@Entity(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
-    @Column(name = "first_name")
+    private Long id;
     private String firstName;
-    @Column(name = "last_name")
     private String lastName;
-    @Column(name = "given_marios")
-    @OneToMany(mappedBy = "marios",
-            cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "sender")
     private List<Marios> givenMarios;
-    @Column(name = "received_marios")
-    @OneToMany(mappedBy = "marios",
-            cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "receiver")
     private List<Marios> receivedMarios;
 
-    public User(int id, String firstName, String lastName) {
+    public User(Long id, String firstName, String lastName) {
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.givenMarios = new ArrayList<>();
+        this.receivedMarios = new ArrayList<>();
+    }
+
+    public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.givenMarios = new ArrayList<>();
@@ -67,9 +67,7 @@ public class User {
 
     @Override
     public String toString() {
-        return this.firstName.toUpperCase()
-                + " "
-                + this.lastName.toUpperCase();
+        return this.firstName.toUpperCase() + " " + this.lastName.toUpperCase();
     }
 
 

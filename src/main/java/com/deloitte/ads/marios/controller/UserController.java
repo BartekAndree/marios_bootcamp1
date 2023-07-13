@@ -1,42 +1,41 @@
 package com.deloitte.ads.marios.controller;
 
-import com.deloitte.ads.marios.repository.Marios;
-import com.deloitte.ads.marios.repository.User;
-import com.deloitte.ads.marios.service.MyService;
+import com.deloitte.ads.marios.dto.UserDTO;
+import com.deloitte.ads.marios.entity.Marios;
+import com.deloitte.ads.marios.entity.User;
+import com.deloitte.ads.marios.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private MyService myService;
+    private UserService userService;
 
     @GetMapping("")
-    public Set<User> getAllUsers(){
-        return this.myService.getAllUsers();
+    public Iterable<User> getAllUsers(){
+        return this.userService.getAllUsers();
     }
 
     @PostMapping("/create")
     public void createUser(@RequestBody UserDTO userDTO) {
-        myService.addUser(userDTO.getFirstName(),
-                userDTO.getLastName());
+        userService.addUser(userDTO);
     }
     @GetMapping("/{userId}")
-    public User getUserById(@PathVariable int userId){
-        return myService.findUserById(userId);
+    public User getUserById(@PathVariable Long userId){
+        return userService.findUserById(userId);
     }
 
     @GetMapping("/{userId}/received")
-    public List<Marios> getReceivedMariosByUserId(@PathVariable int userId) {
-        return myService.getUserReceivedMarios(userId);
+    public List<Marios> getReceivedMariosByUserId(@PathVariable Long userId) {
+        return userService.getUserReceivedMarios(userId);
     }
 
     @GetMapping("/{userId}/given")
-    public List<Marios> getGivenMariosByUserId(@PathVariable int userId) {
-        return myService.getUserGivenMarios(userId);
+    public List<Marios> getGivenMariosByUserId(@PathVariable Long userId) {
+        return userService.getUserGivenMarios(userId);
     }
 }
