@@ -1,6 +1,7 @@
 package com.deloitte.ads.marios.entity;
 
 import com.deloitte.ads.marios.entity.Marios;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,8 +14,10 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    @JsonIgnore
     @OneToMany(mappedBy = "sender")
     private List<Marios> givenMarios;
+    @JsonIgnore
     @OneToMany(mappedBy = "receiver")
     private List<Marios> receivedMarios;
 
@@ -55,6 +58,26 @@ public class User {
 
     public List<Marios> getReceivedMarios() {
         return receivedMarios;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGivenMarios(List<Marios> givenMarios) {
+        this.givenMarios = givenMarios;
+    }
+
+    public void setReceivedMarios(List<Marios> receivedMarios) {
+        this.receivedMarios = receivedMarios;
     }
 
     public void addGivenMarios(Marios marios) {

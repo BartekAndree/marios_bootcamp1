@@ -6,24 +6,32 @@ import com.deloitte.ads.marios.service.MariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 @RequestMapping("/marios")
 public class MariosController {
 
-    @Autowired
     private MariosService mariosService;
+    @Autowired
+    public MariosController(MariosService mariosService) {
+        this.mariosService = mariosService;
+    }
 
     @GetMapping("")
-    public Iterable<Marios> getMarios() {
+    public Set<Marios> getAllMarios() {
         return mariosService.getAllMarios();
     }
-    @PostMapping("/create")
-    public void createMarios(@RequestBody MariosDTO mariosDTO){
-        mariosService.addMarios(mariosDTO);
-    }
+
     @GetMapping("/{mariosId}")
-    public Marios getMariosById(@PathVariable Long mariosId){
+    public Marios getMariosById(@PathVariable Long mariosId) {
         return mariosService.findMariosById(mariosId);
     }
+
+    @PostMapping("/create")
+    public void createMarios(@RequestBody MariosDTO mariosDTO) {
+        mariosService.addMarios(mariosDTO);
+    }
+
 
 }

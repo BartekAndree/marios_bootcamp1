@@ -3,68 +3,59 @@ package com.deloitte.ads.marios.service;
 import com.deloitte.ads.marios.dto.UserDTO;
 import com.deloitte.ads.marios.entity.Marios;
 import com.deloitte.ads.marios.entity.User;
+import com.deloitte.ads.marios.repository.MariosRepository;
 import com.deloitte.ads.marios.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserService {
-    @Autowired
+
     private UserRepository userRepository;
-
-
-    public void init(){
-        User u1 = new User(1L, "Bartek", "Andree");
-        User u2 = new User(2L, "Kinga", "Banach");
-        User u3 = new User(3L, "Mateusz", "Zwierzlak");
-        User u4 = new User(4L, "Bartek", "Szymanski");
-        userRepository.save(u1);
-        userRepository.save(u2);
-        userRepository.save(u3);
-        userRepository.save(u4);
+    private MariosRepository mariosRepository;
+    @Autowired
+    public UserService(UserRepository userRepository, MariosRepository mariosRepository) {
+        this.userRepository = userRepository;
+        this.mariosRepository = mariosRepository;
     }
 
+    public User findUserById(Long userId) {
+        Optional<User> user = userRepository.findById(userId);
+        return user.orElse(null);
+    }
+    public Set<User> getAllUsers() {
+        Iterable<User> users = userRepository.findAll();
+        Set<User> userSet = new HashSet<>();
+        users.forEach(userSet::add);
+        return userSet;
+    }
     public void addUser(UserDTO userDTO) {
+        User user = new User();
         if (userDTO.getFirstName() != null && userDTO.getLastName() != null) {
-            User user = new User(userDTO.getFirstName(), userDTO.getLastName());
+            user.setFirstName(userDTO.getFirstName());
+            user.setLastName(userDTO.getLastName());
             userRepository.save(user);
         }
     }
 
-    public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
     public List<Marios> getUserReceivedMarios(Long userId) {
         User user = findUserById(userId);
-        if (user != null) {
-            return user.getReceivedMarios();
-        }
-        return null;
+        return mariosRepository.findByReceiver(user);
     }
-
     public List<Marios> getUserGivenMarios(Long userId) {
         User user = findUserById(userId);
-        if (user != null) {
-            return user.getGivenMarios();
-        }
-        return null;
+        return mariosRepository.findBySender(user);
     }
-
     public List<Marios> getUserAllMarios(Long userId) {
         User user = findUserById(userId);
-        if (user != null) {
-            return user.getGivenMarios();
-        }
-        return null;
+        return mariosRepository.findByReceiverOrSender(user, user);
     }
-
-    public User findUserById(Long senderId) {
-        Optional<User> user = userRepository.findById(senderId);
-        return user.orElse(null);
+    public void addMariosByInitializer(User user) {
+        userRepository.save(user);
     }
 }

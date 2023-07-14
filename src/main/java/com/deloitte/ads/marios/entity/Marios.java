@@ -12,10 +12,10 @@ public class Marios {
     private String comment;
     private LocalDateTime timestamp;
     @ManyToOne
-    @JoinColumn(name = "sender")
+    @JoinColumn(name = "sender_id")
     private User sender;
     @ManyToOne
-    @JoinColumn(name = "receiver")
+    @JoinColumn(name = "receiver_id")
     private User receiver;
 
     public Marios(Long id, String type, String comment,
@@ -28,6 +28,7 @@ public class Marios {
         this.sender = sender;
         this.receiver = receiver;
     }
+
     public Marios(String type, String comment,
                   User sender,
                   User receiver) {
@@ -66,19 +67,40 @@ public class Marios {
         return receiver;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
+    }
 
     @Override
     public String toString() {
         return this.type;
     }
 
-//    public static String[] mariosTypes = new String[]{
-//            "Dziękuję Za Pomoc",
-//            "Doceniam Twoją Pracę",
-//            "Twoje Umiejętności Programistyczne Są Niesamowite",
-//            "Cieszę Si ęŻe Mogę Pracować Z Takim Utalentowanym Programistą",
-//            "Twoje Rozwiązania Są Zawsze Innowacyjne I Skuteczne",
-//    };
+//    APPRECIATION("Appreciation"),
+//    TEAMWORK("Teamwork"),
+//    LEADERSHIP("Leadership"),
+//    CREATIVITY("Creativity"),
+//    PROBLEM_SOLVING("Problem Solving");
 
 
 }
