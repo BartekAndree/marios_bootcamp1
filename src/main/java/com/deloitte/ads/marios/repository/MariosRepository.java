@@ -15,4 +15,7 @@ public interface MariosRepository extends CrudRepository<Marios, Long> {
     List<Marios> findBySender(User user);
 
     List<Marios> findByReceiverOrSender(User receiver, User sender);
+
+    List<Marios> findByReceiverAndType(User receiver, String type);
+
 }

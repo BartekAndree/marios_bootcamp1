@@ -1,7 +1,7 @@
 package com.deloitte.ads.marios.entity;
 
-import com.deloitte.ads.marios.entity.Marios;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +14,8 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    @Unique
+    private String email;
     @JsonIgnore
     @OneToMany(mappedBy = "sender")
     private List<Marios> givenMarios;
@@ -21,17 +23,11 @@ public class User {
     @OneToMany(mappedBy = "receiver")
     private List<Marios> receivedMarios;
 
-    public User(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.givenMarios = new ArrayList<>();
-        this.receivedMarios = new ArrayList<>();
-    }
 
-    public User(String firstName, String lastName) {
+    public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.givenMarios = new ArrayList<>();
         this.receivedMarios = new ArrayList<>();
     }
@@ -50,6 +46,14 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<Marios> getGivenMarios() {

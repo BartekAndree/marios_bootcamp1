@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 @Service
 public class UserService {
@@ -36,13 +37,13 @@ public class UserService {
     }
     public void addUser(UserDTO userDTO) {
         User user = new User();
-        if (userDTO.getFirstName() != null && userDTO.getLastName() != null) {
+        if (userDTO.getFirstName() != null && userDTO.getLastName() != null && validateEmail(userDTO.getEmail())) {
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
+            user.setEmail(userDTO.getEmail());
             userRepository.save(user);
         }
     }
-
     public List<Marios> getUserReceivedMarios(Long userId) {
         User user = findUserById(userId);
         return mariosRepository.findByReceiver(user);
@@ -54,6 +55,10 @@ public class UserService {
     public List<Marios> getUserAllMarios(Long userId) {
         User user = findUserById(userId);
         return mariosRepository.findByReceiverOrSender(user, user);
+    }
+    private boolean validateEmail(String email){
+        return Pattern.compile("^(?=.{1,64}@)[\\p{L}0-9_-]+(\\.[\\p{L}0-9_-]+)*@"
+                + "[^-][\\p{L}0-9-]+(\\.[\\p{L}0-9-]+)*(\\.[\\p{L}]{2,})$").matcher(email).matches();
     }
     public void addMariosByInitializer(User user) {
         userRepository.save(user);

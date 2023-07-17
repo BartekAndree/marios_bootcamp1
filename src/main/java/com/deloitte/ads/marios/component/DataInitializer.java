@@ -21,10 +21,10 @@
 //
 //    @Override
 //    public void run(String... args) throws Exception {
-//        User u1 = new User("Bartek", "Kowalski");
-//        User u2 = new User("Jan", "Podwalski");
-//        User u3 = new User("Adam", "Zagórny");
-//        User u4 = new User("Marek", "Piórko");
+//        User u1 = new User("Bartek", "Kowalski", "bartekkowalski@gmail.com");
+//        User u2 = new User("Jan", "Podwalski", "janpodwalski@gmail.com");
+//        User u3 = new User("Adam", "Zagórny", "adamzagorny@gmail.com");
+//        User u4 = new User("Marek", "Piórko", "marekpiorko@gmail.com");
 //
 //        Marios m1 = new Marios("Mario", "Mario", u1, u2);
 //        Marios m2 = new Marios("Luigi", "Mario", u3, u4);
