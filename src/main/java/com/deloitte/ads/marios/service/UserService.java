@@ -56,8 +56,9 @@ public class UserService {
         User user = findUserById(userId);
         return mariosRepository.findByReceiverOrSender(user, user);
     }
-    public User getUserByEmail(String email){
-        return userRepository.findByEmail(email);
+    public User findUserByEmail(String email){
+        Optional<User> user = userRepository.findByEmail(email);
+        return user.orElse(null);
     }
     private boolean validateEmail(String email){
         return Pattern.compile("^(?=.{1,64}@)[\\p{L}0-9_-]+(\\.[\\p{L}0-9_-]+)*@"

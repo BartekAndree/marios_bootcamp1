@@ -30,25 +30,26 @@ public class UserController {
     public User getUserById(@PathVariable Long userId) {
         return userService.findUserById(userId);
     }
-//    @GetMapping("/{userEmail}")
-//    public User getUserByEmail(@PathVariable String userEmail){
-//        return userService.getUserByEmail(userEmail);
-//    }
+
+    @GetMapping("/email/{userEmail}")
+    public User getUserByEmail(@PathVariable String userEmail) {
+        return userService.findUserByEmail(userEmail);
+    }
     @PostMapping("/create")
     public void createUser(@RequestBody UserDTO userDTO) {
         userService.createUser(userDTO);
     }
 
-    @GetMapping("/{userId}/received")
+    @GetMapping("/id/{userId}/received")
     public List<Marios> getUserGivenMarios(@PathVariable Long userId) {
         return userService.getUserReceivedMarios(userId);
     }
 
-    @GetMapping("/{userId}/given")
+    @GetMapping("/id/{userId}/given")
     public List<Marios> getUserReceivedMarios(@PathVariable Long userId) {
         return userService.getUserGivenMarios(userId);
     }
-    @GetMapping("/{userId}/marios")
+    @GetMapping("/id/{userId}/marios")
     public List<Marios> getUserAllMarios(@PathVariable Long userId) {
         return userService.getUserAllMarios(userId);
     }
