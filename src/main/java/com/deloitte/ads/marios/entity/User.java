@@ -2,7 +2,9 @@ package com.deloitte.ads.marios.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.checkerframework.common.aliasing.qual.Unique;
+import org.springframework.beans.factory.annotation.Required;
 
+import javax.annotation.RegEx;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
-    @Unique
+    @Column(unique=true)
     private String email;
     @JsonIgnore
     @OneToMany(mappedBy = "sender")

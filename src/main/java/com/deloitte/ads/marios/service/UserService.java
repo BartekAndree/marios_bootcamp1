@@ -35,7 +35,7 @@ public class UserService {
         users.forEach(userSet::add);
         return userSet;
     }
-    public void addUser(UserDTO userDTO) {
+    public void createUser(UserDTO userDTO) {
         User user = new User();
         if (userDTO.getFirstName() != null && userDTO.getLastName() != null && validateEmail(userDTO.getEmail())) {
             user.setFirstName(userDTO.getFirstName());
@@ -55,6 +55,9 @@ public class UserService {
     public List<Marios> getUserAllMarios(Long userId) {
         User user = findUserById(userId);
         return mariosRepository.findByReceiverOrSender(user, user);
+    }
+    public User getUserByEmail(String email){
+        return userRepository.findByEmail(email);
     }
     private boolean validateEmail(String email){
         return Pattern.compile("^(?=.{1,64}@)[\\p{L}0-9_-]+(\\.[\\p{L}0-9_-]+)*@"

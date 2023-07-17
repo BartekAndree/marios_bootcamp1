@@ -5,6 +5,7 @@ import com.deloitte.ads.marios.entity.Marios;
 import com.deloitte.ads.marios.entity.User;
 import com.deloitte.ads.marios.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,14 +26,17 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/id/{userId}")
     public User getUserById(@PathVariable Long userId) {
         return userService.findUserById(userId);
     }
-
+//    @GetMapping("/{userEmail}")
+//    public User getUserByEmail(@PathVariable String userEmail){
+//        return userService.getUserByEmail(userEmail);
+//    }
     @PostMapping("/create")
     public void createUser(@RequestBody UserDTO userDTO) {
-        userService.addUser(userDTO);
+        userService.createUser(userDTO);
     }
 
     @GetMapping("/{userId}/received")
