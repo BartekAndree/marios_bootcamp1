@@ -4,6 +4,8 @@ import com.deloitte.ads.marios.dto.MariosDTO;
 import com.deloitte.ads.marios.entity.Marios;
 import com.deloitte.ads.marios.service.MariosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -13,6 +15,7 @@ import java.util.Set;
 public class MariosController {
 
     private MariosService mariosService;
+
     @Autowired
     public MariosController(MariosService mariosService) {
         this.mariosService = mariosService;
@@ -33,5 +36,8 @@ public class MariosController {
         mariosService.addMarios(mariosDTO);
     }
 
-
+    @DeleteMapping("/delete/{mariosId}")
+    public void deleteMarios(@PathVariable Long mariosId){
+        mariosService.deleteMarios(mariosId);
+    }
 }

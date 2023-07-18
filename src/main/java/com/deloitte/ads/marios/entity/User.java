@@ -19,10 +19,10 @@ public class User {
     @Column(unique=true)
     private String email;
     @JsonIgnore
-    @OneToMany(mappedBy = "sender")
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.REMOVE)
     private List<Marios> givenMarios;
     @JsonIgnore
-    @OneToMany(mappedBy = "receiver")
+    @OneToMany(mappedBy = "receiver", cascade = CascadeType.REMOVE)
     private List<Marios> receivedMarios;
 
 

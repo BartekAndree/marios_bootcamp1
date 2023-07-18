@@ -8,7 +8,6 @@ import com.deloitte.ads.marios.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 import java.util.Set;
 
@@ -50,6 +49,11 @@ public class MariosService {
             marios.setReceiver(receiver);
             mariosRepository.save(marios);
         }
+    }
+
+    public void deleteMarios(Long mariosId) {
+        Optional<Marios> marios = mariosRepository.findById(mariosId);
+        marios.ifPresent(value -> mariosRepository.delete(value));
     }
 
     public void addMariosByInitializer(Marios marios) {

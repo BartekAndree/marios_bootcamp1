@@ -37,12 +37,18 @@ public class UserService {
     }
     public void createUser(UserDTO userDTO) {
         User user = new User();
-        if (userDTO.getFirstName() != null && userDTO.getLastName() != null && validateEmail(userDTO.getEmail())) {
+        Optional<User> user1 = userRepository.findByEmail(userDTO.getEmail());
+        if (userDTO.getFirstName() != null && userDTO.getLastName() != null
+                && validateEmail(userDTO.getEmail()) && user1.isEmpty()) {
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
             user.setEmail(userDTO.getEmail());
             userRepository.save(user);
         }
+    }
+    public void deleteUser(String userEmail){
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        user.ifPresent(value -> userRepository.delete(value));
     }
     public List<Marios> getUserReceivedMarios(Long userId) {
         User user = findUserById(userId);
