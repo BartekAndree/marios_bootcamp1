@@ -1,10 +1,7 @@
 package com.deloitte.ads.marios.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.checkerframework.common.aliasing.qual.Unique;
-import org.springframework.beans.factory.annotation.Required;
 
-import javax.annotation.RegEx;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

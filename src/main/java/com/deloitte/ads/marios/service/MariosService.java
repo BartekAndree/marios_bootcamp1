@@ -14,8 +14,8 @@ import java.util.Set;
 @Service
 public class MariosService {
 
-    private MariosRepository mariosRepository;
-    private UserRepository userRepository;
+    private final MariosRepository mariosRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public MariosService(MariosRepository mariosRepository, UserRepository userRepository) {
@@ -53,7 +53,7 @@ public class MariosService {
 
     public void deleteMarios(Long mariosId) {
         Optional<Marios> marios = mariosRepository.findById(mariosId);
-        marios.ifPresent(value -> mariosRepository.delete(value));
+        marios.ifPresent(mariosRepository::delete);
     }
 
     public void addMariosByInitializer(Marios marios) {

@@ -17,8 +17,8 @@ import java.util.regex.Pattern;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
-    private MariosRepository mariosRepository;
+    private final UserRepository userRepository;
+    private final MariosRepository mariosRepository;
     @Autowired
     public UserService(UserRepository userRepository, MariosRepository mariosRepository) {
         this.userRepository = userRepository;
@@ -48,7 +48,7 @@ public class UserService {
     }
     public void deleteUser(String userEmail){
         Optional<User> user = userRepository.findByEmail(userEmail);
-        user.ifPresent(value -> userRepository.delete(value));
+        user.ifPresent(userRepository::delete);
     }
     public List<Marios> getUserReceivedMarios(Long userId) {
         User user = findUserById(userId);

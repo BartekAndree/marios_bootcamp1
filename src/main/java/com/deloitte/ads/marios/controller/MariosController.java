@@ -4,8 +4,6 @@ import com.deloitte.ads.marios.dto.MariosDTO;
 import com.deloitte.ads.marios.entity.Marios;
 import com.deloitte.ads.marios.service.MariosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -14,7 +12,7 @@ import java.util.Set;
 @RequestMapping("/marios")
 public class MariosController {
 
-    private MariosService mariosService;
+    private final MariosService mariosService;
 
     @Autowired
     public MariosController(MariosService mariosService) {

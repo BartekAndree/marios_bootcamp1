@@ -10,8 +10,8 @@
 //
 //@Component
 //public class DataInitializer implements CommandLineRunner {
-//    private UserService userService;
-//    private MariosService mariosService;
+//    private final UserService userService;
+//    private final MariosService mariosService;
 //
 //    @Autowired
 //    public DataInitializer(UserService userService, MariosService mariosService){

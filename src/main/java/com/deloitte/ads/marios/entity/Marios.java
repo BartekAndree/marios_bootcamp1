@@ -101,6 +101,4 @@ public class Marios {
 //    LEADERSHIP("Leadership"),
 //    CREATIVITY("Creativity"),
 //    PROBLEM_SOLVING("Problem Solving");
-
-
 }
