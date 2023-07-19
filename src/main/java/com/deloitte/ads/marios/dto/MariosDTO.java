@@ -26,11 +26,12 @@ public class MariosDTO {
         this.comment = comment;
         this.timestamp = timestamp;
     }
-    public static MariosDTO mariosEntityToMariosDTO(Marios marios){
+
+    public static MariosDTO mariosEntityToMariosDTO(Marios marios) {
         return new MariosDTO(marios.getUuid()
-                ,marios.getSender().getUuid()
-                ,marios.getReceiver().getUuid()
-                ,marios.getType()
-                ,marios.getComment(), marios.getTimestamp());
+                , marios.getSender().getUuid()
+                , marios.getReceiver().getUuid()
+                , marios.getType()
+                , marios.getComment(), marios.getTimestamp());
     }
 }

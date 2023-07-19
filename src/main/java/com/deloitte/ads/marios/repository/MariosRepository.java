@@ -6,6 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public interface MariosRepository extends CrudRepository<Marios, Long> {
@@ -16,6 +18,6 @@ public interface MariosRepository extends CrudRepository<Marios, Long> {
 
     List<Marios> findByReceiverOrSender(User receiver, User sender);
 
-    List<Marios> findByReceiverAndType(User receiver, String type);
+    Optional<Marios> findByUuid(UUID uuid);
 
 }

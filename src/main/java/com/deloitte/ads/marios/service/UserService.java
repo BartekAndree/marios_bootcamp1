@@ -53,11 +53,17 @@ public class UserService {
                 && validateEmail(userDTO.getEmail())
                 && userDTO.getUserName() != null
                 && user1.isEmpty()) {
-            user.setFirstName(userDTO.getFirstName());
-            user.setLastName(userDTO.getLastName());
-            user.setUserName(userDTO.getUserName());
-            user.setEmail(userDTO.getEmail());
-            userRepository.save(user);
+            try {
+                user.setFirstName(userDTO.getFirstName());
+                user.setLastName(userDTO.getLastName());
+                user.setUserName(userDTO.getUserName());
+                user.setEmail(userDTO.getEmail());
+                userRepository.save(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("User not created");
         }
         Optional<User> userCreated = userRepository.findByUserName(userDTO.getUserName());
         return userCreated.orElse(null);

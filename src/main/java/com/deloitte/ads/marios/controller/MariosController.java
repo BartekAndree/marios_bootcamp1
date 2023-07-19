@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/marios")
@@ -24,18 +25,19 @@ public class MariosController {
         return mariosService.getAllMarios();
     }
 
-    @GetMapping("/{mariosId}")
-    public Marios getMariosById(@PathVariable Long mariosId) {
-        return mariosService.findMariosById(mariosId);
+    @GetMapping("/{mariosUuid}")
+    public MariosDTO getMariosById(@PathVariable UUID mariosUuid) {
+        return mariosService.findMariosById(mariosUuid);
     }
 
     @PostMapping("/create")
-    public void createMarios(@RequestBody MariosDTO mariosDTO) {
-        mariosService.addMarios(mariosDTO);
+    public MariosDTO createMarios(@RequestBody MariosDTO mariosDTO) {
+        Marios marios = mariosService.createMarios(mariosDTO);
+        return mariosService.findMariosById(marios.getUuid());
     }
 
-    @DeleteMapping("/delete/{mariosId}")
-    public void deleteMarios(@PathVariable Long mariosId) {
-        mariosService.deleteMarios(mariosId);
+    @DeleteMapping("/delete/{mariosUuid}")
+    public void deleteMarios(@PathVariable UUID mariosUuid) {
+        mariosService.deleteMarios(mariosUuid);
     }
 }

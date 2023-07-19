@@ -24,7 +24,7 @@ public class Marios {
 
     private String comment;
 
-    private LocalDateTime timestamp;
+    private LocalDateTime timestamp = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "sender_id")

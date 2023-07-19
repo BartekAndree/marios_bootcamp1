@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 public class MariosService {
@@ -24,9 +25,9 @@ public class MariosService {
         this.userRepository = userRepository;
     }
 
-    public Marios findMariosById(Long mariosId) {
-        Optional<Marios> marios = mariosRepository.findById(mariosId);
-        return marios.orElse(null);
+    public MariosDTO findMariosById(UUID mariosUuid) {
+        Optional<Marios> marios = mariosRepository.findByUuid(mariosUuid);
+        return marios.map(MariosDTO::mariosEntityToMariosDTO).orElse(null);
     }
 
     public Set<MariosDTO> getAllMarios() {
@@ -36,22 +37,29 @@ public class MariosService {
         return mariosSet;
     }
 
-    public void addMarios(MariosDTO mariosDTO) {
+    public Marios createMarios(MariosDTO mariosDTO) {
         Marios marios = new Marios();
         User sender = userRepository.findByUuid(mariosDTO.getSenderId()).orElse(null);
         User receiver = userRepository.findByUuid(mariosDTO.getReceiverId()).orElse(null);
 
         if (sender != null && receiver != null && sender != receiver) {
-            marios.setType(mariosDTO.getType());
-            marios.setComment(mariosDTO.getComment());
-            marios.setSender(sender);
-            marios.setReceiver(receiver);
-            mariosRepository.save(marios);
+            try {
+                marios.setSender(sender);
+                marios.setReceiver(receiver);
+                marios.setType(mariosDTO.getType());
+                marios.setComment(mariosDTO.getComment());
+                mariosRepository.save(marios);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Something went wrong!");
         }
+        return marios;
     }
 
-    public void deleteMarios(Long mariosId) {
-        Optional<Marios> marios = mariosRepository.findById(mariosId);
+    public void deleteMarios(UUID mariosUuid) {
+        Optional<Marios> marios = mariosRepository.findByUuid(mariosUuid);
         marios.ifPresent(mariosRepository::delete);
     }
 
