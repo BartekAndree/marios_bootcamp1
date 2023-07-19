@@ -8,6 +8,7 @@ import com.deloitte.ads.marios.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -28,19 +29,17 @@ public class MariosService {
         return marios.orElse(null);
     }
 
-    public Set<Marios> getAllMarios() {
+    public Set<MariosDTO> getAllMarios() {
         Iterable<Marios> marios = mariosRepository.findAll();
-        Set<Marios> mariosSet = new java.util.HashSet<>();
-        marios.forEach(mariosSet::add);
+        Set<MariosDTO> mariosSet = new HashSet<>();
+        marios.forEach(mario -> mariosSet.add(MariosDTO.mariosEntityToMariosDTO(mario)));
         return mariosSet;
     }
 
     public void addMarios(MariosDTO mariosDTO) {
         Marios marios = new Marios();
-        User sender = userRepository.findById(
-                mariosDTO.getSenderId()).orElse(null);
-        User receiver = userRepository.findById(
-                mariosDTO.getReceiverId()).orElse(null);
+        User sender = userRepository.findByUuid(mariosDTO.getSenderId()).orElse(null);
+        User receiver = userRepository.findByUuid(mariosDTO.getReceiverId()).orElse(null);
 
         if (sender != null && receiver != null && sender != receiver) {
             marios.setType(mariosDTO.getType());

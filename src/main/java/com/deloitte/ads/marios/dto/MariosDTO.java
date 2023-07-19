@@ -1,40 +1,36 @@
 package com.deloitte.ads.marios.dto;
 
+import com.deloitte.ads.marios.entity.Marios;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Getter
+@Setter
 public class MariosDTO {
-    private Long senderId;
-    private Long receiverId;
+    private UUID mariosId;
+    private UUID senderId;
+    private UUID receiverId;
     private String type;
     private String comment;
+    private LocalDateTime timestamp;
 
-    public Long getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(Long senderId) {
+    public MariosDTO(UUID mariosId, UUID senderId, UUID receiverId, String type, String comment, LocalDateTime timestamp) {
+        this.mariosId = mariosId;
         this.senderId = senderId;
-    }
-
-    public Long getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(Long receiverId) {
         this.receiverId = receiverId;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
         this.type = type;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
         this.comment = comment;
+        this.timestamp = timestamp;
+    }
+    public static MariosDTO mariosEntityToMariosDTO(Marios marios){
+        return new MariosDTO(marios.getUuid()
+                ,marios.getSender().getUuid()
+                ,marios.getReceiver().getUuid()
+                ,marios.getType()
+                ,marios.getComment(), marios.getTimestamp());
     }
 }

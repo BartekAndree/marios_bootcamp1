@@ -20,7 +20,7 @@ public class MariosController {
     }
 
     @GetMapping("")
-    public Set<Marios> getAllMarios() {
+    public Set<MariosDTO> getAllMarios() {
         return mariosService.getAllMarios();
     }
 
@@ -35,7 +35,7 @@ public class MariosController {
     }
 
     @DeleteMapping("/delete/{mariosId}")
-    public void deleteMarios(@PathVariable Long mariosId){
+    public void deleteMarios(@PathVariable Long mariosId) {
         mariosService.deleteMarios(mariosId);
     }
 }

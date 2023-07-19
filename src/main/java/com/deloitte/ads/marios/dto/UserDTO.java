@@ -1,31 +1,24 @@
 package com.deloitte.ads.marios.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Getter
+@Setter
 public class UserDTO {
     private String firstName;
     private String lastName;
+    private UUID uuid;
     private String email;
+    private String userName;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
+    public UserDTO(String firstName, String lastName, UUID uuid, String email, String userName) {
         this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+        this.uuid = uuid;
         this.email = email;
+        this.userName = userName;
     }
 }

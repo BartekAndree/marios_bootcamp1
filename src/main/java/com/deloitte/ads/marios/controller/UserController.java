@@ -1,7 +1,8 @@
 package com.deloitte.ads.marios.controller;
 
+import com.deloitte.ads.marios.dto.MariosDTO;
+import com.deloitte.ads.marios.dto.PublicUserDTO;
 import com.deloitte.ads.marios.dto.UserDTO;
-import com.deloitte.ads.marios.entity.Marios;
 import com.deloitte.ads.marios.entity.User;
 import com.deloitte.ads.marios.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -20,43 +22,39 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("")
-    public Set<User> getAllUsers() {
+    @GetMapping("/all")
+    public Set<PublicUserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/id/{userId}")
-    public User getUserById(@PathVariable Long userId) {
-        return userService.findUserById(userId);
-    }
-
-    @GetMapping("/email/{userEmail}")
-    public User getUserByEmail(@PathVariable String userEmail) {
-        return userService.findUserByEmail(userEmail);
+    @GetMapping("/{userUuid}")
+    public UserDTO getUserById(@PathVariable UUID userUuid) {
+        return userService.showUser(userUuid);
     }
 
     @PostMapping("/create")
-    public void createUser(@RequestBody UserDTO userDTO) {
-        userService.createUser(userDTO);
+    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+        User user = userService.createUser(userDTO);
+        return userService.showUser(user.getUuid());
     }
 
-    @DeleteMapping("/delete/{userEmail}")
-    public void deleteUser(@PathVariable String userEmail) {
-        userService.deleteUser(userEmail);
+    @DeleteMapping("/delete/{userUuid}")
+    public void deleteUser(@PathVariable UUID userUuid) {
+        userService.deleteUser(userUuid);
     }
 
-    @GetMapping("/id/{userId}/received")
-    public List<Marios> getUserGivenMarios(@PathVariable Long userId) {
-        return userService.getUserReceivedMarios(userId);
+    @GetMapping("/{userUuid}/received")
+    public List<MariosDTO> getUserGivenMarios(@PathVariable UUID userUuid) {
+        return userService.getUserReceivedMarios(userUuid);
     }
 
-    @GetMapping("/id/{userId}/given")
-    public List<Marios> getUserReceivedMarios(@PathVariable Long userId) {
-        return userService.getUserGivenMarios(userId);
+    @GetMapping("/{userUuid}/given")
+    public List<MariosDTO> getUserReceivedMarios(@PathVariable UUID userUuid) {
+        return userService.getUserGivenMarios(userUuid);
     }
 
-    @GetMapping("/id/{userId}/marios")
-    public List<Marios> getUserAllMarios(@PathVariable Long userId) {
-        return userService.getUserAllMarios(userId);
+    @GetMapping("/{userUuid}/marios")
+    public List<MariosDTO> getUserAllMarios(@PathVariable UUID userUuid) {
+        return userService.getUserAllMarios(userUuid);
     }
 }

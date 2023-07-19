@@ -14,23 +14,23 @@
 //    private final MariosService mariosService;
 //
 //    @Autowired
-//    public DataInitializer(UserService userService, MariosService mariosService){
+//    public DataInitializer(UserService userService, MariosService mariosService) {
 //        this.userService = userService;
 //        this.mariosService = mariosService;
 //    }
 //
 //    @Override
 //    public void run(String... args) throws Exception {
-//        User u1 = new User("Bartek", "Kowalski", "bartekkowalski@gmail.com");
-//        User u2 = new User("Jan", "Podwalski", "janpodwalski@gmail.com");
-//        User u3 = new User("Adam", "Zagórny", "adamzagorny@gmail.com");
-//        User u4 = new User("Marek", "Piórko", "marekpiorko@gmail.com");
+//        User u1 = new User("Bartek", "Kowalski","BarKow", "bartekkowalski@gmail.com");
+//        User u2 = new User("Jan", "Podwalski","JanPod", "janpodwalski@gmail.com");
+//        User u3 = new User("Adam", "Zagórny","AdaZag", "adamzagorny@gmail.com");
+//        User u4 = new User("Marek", "Piórko","MarPio", "marekpiorko@gmail.com");
 //
-//        Marios m1 = new Marios("Mario", "Mario", u1, u2);
-//        Marios m2 = new Marios("Luigi", "Mario", u3, u4);
-//        Marios m3 = new Marios("Wario", "Wario", u1, u4);
-//        Marios m4 = new Marios("Waluigi", "Wario", u2, u3);
-//        Marios m5 = new Marios("Princess", "Peach", u1, u3);
+//        Marios m1 = new Marios("Mario", "Good work!", u1, u2);
+//        Marios m2 = new Marios("Luigi", "Thanks for your help", u3, u4);
+//        Marios m3 = new Marios("Wario", "You are great specialist!", u1, u4);
+//        Marios m4 = new Marios("Waluigi", "Your programming skills are awesome!", u2, u3);
+//        Marios m5 = new Marios("Princess", "Good good my friend!", u1, u3);
 //
 //        userService.addMariosByInitializer(u1);
 //        userService.addMariosByInitializer(u2);

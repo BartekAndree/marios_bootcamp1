@@ -1,31 +1,50 @@
 package com.deloitte.ads.marios.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+@Getter
+@Setter
 @Entity(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Type(type = "uuid-char")
+    @Column(unique = true)
+    private UUID uuid = UUID.randomUUID();
+
     private String firstName;
+
     private String lastName;
-    @Column(unique=true)
+
+    @Column(unique = true)
+    private String userName;
+
+    @Column(unique = true)
     private String email;
+
     @JsonIgnore
     @OneToMany(mappedBy = "sender", cascade = CascadeType.REMOVE)
     private List<Marios> givenMarios;
+
     @JsonIgnore
     @OneToMany(mappedBy = "receiver", cascade = CascadeType.REMOVE)
     private List<Marios> receivedMarios;
 
 
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String userName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
         this.email = email;
         this.givenMarios = new ArrayList<>();
         this.receivedMarios = new ArrayList<>();
@@ -33,54 +52,6 @@ public class User {
 
     public User() {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public List<Marios> getGivenMarios() {
-        return givenMarios;
-    }
-
-    public List<Marios> getReceivedMarios() {
-        return receivedMarios;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setGivenMarios(List<Marios> givenMarios) {
-        this.givenMarios = givenMarios;
-    }
-
-    public void setReceivedMarios(List<Marios> receivedMarios) {
-        this.receivedMarios = receivedMarios;
     }
 
     public void addGivenMarios(Marios marios) {
