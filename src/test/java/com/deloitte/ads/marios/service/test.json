@@ -2,26 +2,35 @@
   {
     "firstName": "Jan",
     "lastName": "Podwalski",
-    "email": "janpodwalski@gmail.com"
+    "email": "janpodwalski@gmail.com",
+    "userName": "JanPod"
   },
   {
     "firstName": "Marek",
     "lastName": "Piórko",
-    "email": "marekpiorko@gmail.com"
+    "email": "marekpiorko@gmail.com",
+    "userName": "MarPio"
+
   },
   {
     "firstName": "Bartek",
     "lastName": "Kowalski",
-    "email": "bartekkowalski@gmail.com"
+    "email": "bartekkowalski@gmail.com",
+    "userName": "BarKow"
+
   },
   {
     "firstName": "Adam",
     "lastName": "Zagórny",
-    "email": "adamzagorny@gmail.com"
+    "email": "adamzagorny@gmail.com",
+    "userName": "AdaZag"
+
   },
   {
     "firstName": "Jan",
     "lastName": "Jankiewicz",
-    "email": "janjankiewicz@gmail.com"
+    "email": "janjankiewicz@gmail.com",
+    "userName": "JanJan"
+
   }
 ]

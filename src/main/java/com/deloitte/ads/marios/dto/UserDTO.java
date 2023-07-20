@@ -21,4 +21,5 @@ public class UserDTO {
         this.email = email;
         this.userName = userName;
     }
+
 }
