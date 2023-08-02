@@ -22,6 +22,8 @@ public class Marios {
 
     private String type;
 
+    private String title;
+
     private String comment;
 
     private LocalDateTime timestamp = LocalDateTime.now();
@@ -35,10 +37,11 @@ public class Marios {
     private User receiver;
 
 
-    public Marios(String type, String comment,
+    public Marios(String type,String title, String comment,
                   User sender,
                   User receiver) {
         this.type = type;
+        this.title = title;
         this.comment = comment;
         this.timestamp = LocalDateTime.now();
         this.sender = sender;
@@ -54,9 +57,4 @@ public class Marios {
         return this.type;
     }
 
-//    APPRECIATION("Appreciation"),
-//    TEAMWORK("Teamwork"),
-//    LEADERSHIP("Leadership"),
-//    CREATIVITY("Creativity"),
-//    PROBLEM_SOLVING("Problem Solving");
 }

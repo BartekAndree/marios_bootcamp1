@@ -47,6 +47,7 @@ public class MariosService {
                 marios.setSender(sender);
                 marios.setReceiver(receiver);
                 marios.setType(mariosDTO.getType());
+                marios.setTitle(mariosDTO.getTitle());
                 marios.setComment(mariosDTO.getComment());
                 mariosRepository.save(marios);
             } catch (Exception e) {

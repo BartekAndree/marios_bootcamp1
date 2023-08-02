@@ -14,14 +14,16 @@ public class MariosDTO {
     private UUID senderId;
     private UUID receiverId;
     private String type;
+    private String title;
     private String comment;
     private LocalDateTime timestamp;
 
-    public MariosDTO(UUID mariosId, UUID senderId, UUID receiverId, String type, String comment, LocalDateTime timestamp) {
+    public MariosDTO(UUID mariosId, UUID senderId, UUID receiverId, String type, String title, String comment, LocalDateTime timestamp) {
         this.mariosId = mariosId;
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.type = type;
+        this.title = title;
         this.comment = comment;
         this.timestamp = timestamp;
     }
@@ -31,6 +33,7 @@ public class MariosDTO {
                 , marios.getSender().getUuid()
                 , marios.getReceiver().getUuid()
                 , marios.getType()
+                , marios.getTitle()
                 , marios.getComment(), marios.getTimestamp());
     }
 }
