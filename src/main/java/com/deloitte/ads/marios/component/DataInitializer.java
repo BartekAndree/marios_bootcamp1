@@ -28,27 +28,27 @@ public class DataInitializer implements CommandLineRunner {
     }
     public void initializeData() {
         User u0 = new User("Bartek", "Andree", "BartekAndree", "andree.bartek@gmail.com");
-        User u1 = new User("Bartek", "Kowalski","BarKow", "bartekkowalski@gmail.com");
-        User u2 = new User("Jan", "Podwalski","JanPod", "janpodwalski@gmail.com");
-        User u3 = new User("Adam", "Zagórny","AdaZag", "adamzagorny@gmail.com");
-        User u4 = new User("Marek", "Piórko","MarPio", "marekpiorko@gmail.com");
+        User u1 = new User("Bartek", "Kowalski","BartekKowalski", "bartekkowalski@gmail.com");
+        User u2 = new User("Jan", "Podwalski","JanPodwalski", "janpodwalski@gmail.com");
+        User u3 = new User("Adam", "Zagórny","AdamZagorny", "adamzagorny@gmail.com");
+        User u4 = new User("Marek", "Piórko","MarekPiorko", "marekpiorko@gmail.com");
 
-        Marios m1 = new Marios("Mario", "You did great today Jan!", "Good work!", u1, u2);
-        Marios m2 = new Marios("Luigi", "You did great today Marek!", "Thanks for your help", u3, u4);
-        Marios m3 = new Marios("Wario", "You did great today Marek!", "You are great specialist!", u1, u4);
-        Marios m4 = new Marios("Waluigi", "You did great today Adam!", "Your programming skills are awesome!", u2, u3);
-        Marios m5 = new Marios("Princess", "You did great today Adam!", "Good good my friend!", u1, u3);
-        Marios m6 = new Marios("Mario", "You did great today Bartek!", "Very good!", u1, u0);
-        Marios m7 = new Marios("Mario", "You did great today Bartek!", "Very good!", u2, u0);
-        Marios m8 = new Marios("Mario", "You did great today Bartek!", "Very good!", u3, u0);
-        Marios m9 = new Marios("Mario", "You did great today Bartek!", "Very good!", u4, u0);
-        Marios m10 = new Marios("Wario", "You did great today Bartek!", "Gr8 work!", u1, u0);
-        Marios m11 = new Marios("Mario", "You did great today Bartek!", "Gr8 work!", u2, u0);
-        Marios m12 = new Marios("Mario", "You did great today Bartek!", "Gr8 work!", u3, u0);
-        Marios m13 = new Marios("Mario", "You did great today Bartek!", "Gr8 work!", u0, u1);
-        Marios m14 = new Marios("Mario", "You did great today Jan!", "Gr8 work!", u0, u2);
-        Marios m15 = new Marios("Mario", "You did great today Adam!", "Gr8 work!", u0, u3);
-        Marios m16 = new Marios("Mario", "You did great today Marek!", "Gr8 work!", u0, u4);
+        Marios m1 = new Marios("Thank You", "You did great today Jan!", "Good work!", u1, u2);
+        Marios m2 = new Marios("WOW!", "You did great today Marek!", "Thanks for your help", u3, u4);
+        Marios m3 = new Marios("Im Proud", "You did great today Marek!", "You are great specialist!", u1, u4);
+        Marios m4 = new Marios("Im Proud", "You did great today Adam!", "Your programming skills are awesome!", u2, u3);
+        Marios m5 = new Marios("Impressive", "You did great today Adam!", "Good good my friend!", u1, u3);
+        Marios m6 = new Marios("Thank You", "You did great today Bartek!", "Very good!", u1, u0);
+        Marios m7 = new Marios("Impressive", "You did great today Bartek!", "Very good!", u2, u0);
+        Marios m8 = new Marios("Exceptional", "You did great today Bartek!", "Very good!", u3, u0);
+        Marios m9 = new Marios("Exceptional", "You did great today Bartek!", "Very good!", u4, u0);
+        Marios m10 = new Marios("Thank You", "You did great today Bartek!", "Gr8 work!", u1, u0);
+        Marios m11 = new Marios("Im Proud", "You did great today Bartek!", "Gr8 work!", u2, u0);
+        Marios m12 = new Marios("WOW!", "You did great today Bartek!", "Gr8 work!", u3, u0);
+        Marios m13 = new Marios("Thank You", "You did great today Bartek!", "Gr8 work!", u0, u1);
+        Marios m14 = new Marios("WOW!", "You did great today Jan!", "Gr8 work!", u0, u2);
+        Marios m15 = new Marios("Thank You", "You did great today Adam!", "Gr8 work!", u0, u3);
+        Marios m16 = new Marios("WOW!", "You did great today Marek!", "Gr8 work!", u0, u4);
 
 
 
