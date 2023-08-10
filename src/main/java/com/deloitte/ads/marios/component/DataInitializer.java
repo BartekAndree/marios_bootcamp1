@@ -32,6 +32,7 @@ public class DataInitializer implements CommandLineRunner {
         User u2 = new User("Jan", "Podwalski","JanPodwalski", "janpodwalski@gmail.com");
         User u3 = new User("Adam", "Zagórny","AdamZagorny", "adamzagorny@gmail.com");
         User u4 = new User("Marek", "Piórko","MarekPiorko", "marekpiorko@gmail.com");
+        User u5 = new User("Kamil", "Kamilowski", "KamilKamilowski", "kamilkamilowski@gmail.com");
 
         Marios m1 = new Marios("Thank You", "You did great today Jan!", "Good work!", u1, u2);
         Marios m2 = new Marios("WOW!", "You did great today Marek!", "Thanks for your help", u3, u4);
@@ -49,6 +50,7 @@ public class DataInitializer implements CommandLineRunner {
         Marios m14 = new Marios("WOW!", "You did great today Jan!", "Gr8 work!", u0, u2);
         Marios m15 = new Marios("Thank You", "You did great today Adam!", "Gr8 work!", u0, u3);
         Marios m16 = new Marios("WOW!", "You did great today Marek!", "Gr8 work!", u0, u4);
+        Marios m17 = new Marios("Thank You", "You did gr8 today Bartek!", "I wanted to give you marios for your excellent team leadership. I really appreciate yourhard work and commitment. Keep going!", u5, u0       );
 
 
 
@@ -57,6 +59,7 @@ public class DataInitializer implements CommandLineRunner {
         userService.addMariosByInitializer(u2);
         userService.addMariosByInitializer(u3);
         userService.addMariosByInitializer(u4);
+        userService.addMariosByInitializer(u5);
 
         mariosService.addMariosByInitializer(m1);
         mariosService.addMariosByInitializer(m2);
@@ -74,6 +77,7 @@ public class DataInitializer implements CommandLineRunner {
         mariosService.addMariosByInitializer(m14);
         mariosService.addMariosByInitializer(m15);
         mariosService.addMariosByInitializer(m16);
+        mariosService.addMariosByInitializer(m17);
 
 
     }
