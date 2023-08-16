@@ -4,6 +4,8 @@ import com.deloitte.ads.marios.dto.MariosDTO;
 import com.deloitte.ads.marios.entity.Marios;
 import com.deloitte.ads.marios.service.MariosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -21,7 +23,7 @@ public class MariosController {
     }
 
     @GetMapping("")
-    public Set<MariosDTO> getAllMarios() {
+    public Set<MariosDTO> getAllMarios(JwtAuthenticationToken jwtAuthenticationToken) {
         return mariosService.getAllMarios();
     }
 
