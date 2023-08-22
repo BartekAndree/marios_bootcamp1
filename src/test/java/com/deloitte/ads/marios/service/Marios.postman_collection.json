@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "d36e1d48-ccde-49e9-94e6-186b0747568a",
+		"name": "Marios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26074426"
+	},
+	"item": [
+		{
+			"name": "User endpoints list",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/2695cd94-e2bc-49b7-973a-701f984b8eb0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"2695cd94-e2bc-49b7-973a-701f984b8eb0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get received marios by uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/764197ab-a0ca-4e23-abae-32a2a1e1060d/received",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"764197ab-a0ca-4e23-abae-32a2a1e1060d",
+								"received"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get given marios by uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/764197ab-a0ca-4e23-abae-32a2a1e1060d/given",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"764197ab-a0ca-4e23-abae-32a2a1e1060d",
+								"given"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all marios by uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/764197ab-a0ca-4e23-abae-32a2a1e1060d/marios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"764197ab-a0ca-4e23-abae-32a2a1e1060d",
+								"marios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Alvinfdgvdv\",\r\n    \"lastName\": \"Andreewew\",\r\n    \"email\": \"alvinandree111@gmail.com\",\r\n    \"userName\": \"AlvAnd111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"create"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by uuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/delete/b4866645-0145-4581-95a1-0fb756119029",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"b4866645-0145-4581-95a1-0fb756119029"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "List of all UserController endpoints"
+		},
+		{
+			"name": "Marios endpoints list",
+			"item": [
+				{
+					"name": "Get all marios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/marios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"marios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get marios by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/marios/7a92479a-7f0b-47b4-b852-7dd81535edc3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"marios",
+								"7a92479a-7f0b-47b4-b852-7dd81535edc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create marios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senderId\": \"bf4f2a3c-d76c-4f32-87b4-eb54c7fae8ef\",\r\n    \"receiverId\": \"c9fb56b9-391d-4efb-81b7-82362b4c6ad5\",\r\n    \"type\": \"Princess@@@@@@@@@@@@@@@@@@@@@@@@\",\r\n    \"comment\": \"Good good my friend@@@@@@@@@@@@@@@@@@@@@@@!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/marios/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"marios",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete marios by uuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/marios/delete/b4828cc9-8d6e-4fb0-add1-d4126a4b7310",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"marios",
+								"delete",
+								"b4828cc9-8d6e-4fb0-add1-d4126a4b7310"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "List of all MariosController endpoints"
+		},
+		{
+			"name": "Single iteration tests",
+			"item": [
+				{
+					"name": "Get created user by uuid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let myRequest = {\r",
+									"    url: 'localhost:8083/user/create',\r",
+									"    method: 'POST',\r",
+									"    header: {'content-type': 'application/json'},\r",
+									"    body: {\r",
+									"        mode: 'raw',\r",
+									"        raw: {\r",
+									"            \"firstName\": pm.iterationData.get(\"firstName\"),\r",
+									"            \"lastName\": pm.iterationData.get(\"lastName\"),\r",
+									"            \"email\": pm.iterationData.get(\"email\"),\r",
+									"            \"userName\": pm.iterationData.get(\"userName\")\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.sendRequest(myRequest, afterPreRequest);\r",
+									"\r",
+									"function afterPreRequest(err, res) {\r",
+									"    if (err) {\r",
+									"        console.log(err);\r",
+									"    } else {\r",
+									"        pm.collectionVariables.set(\"UUID\", res.json().uuid);\r",
+									"    }\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response body is correct\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.firstName).to.eql(pm.iterationData.get(\"firstName\"));\r",
+									"    pm.expect(jsonData.lastName).to.eql(pm.iterationData.get(\"lastName\"));\r",
+									"    pm.expect(jsonData.uuid).to.not.null;\r",
+									"    pm.expect(jsonData.email).to.eql(pm.iterationData.get(\"email\"));\r",
+									"    pm.expect(jsonData.userName).to.eql(pm.iterationData.get(\"userName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/{{UUID}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"{{UUID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check if new user is on all users list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"User exists in all of users list\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var userExists = jsonData.some(function (user) {\r",
+									"        return user.uuid == pm.collectionVariables.get(\"UUID\") && user.userName == pm.iterationData.get(\"userName\");\r",
+									"    });\r",
+									"    pm.expect(userExists).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create marios",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Create marios\", function(){\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senderId\": \"{{UUID}}\",\r\n    \"receiverId\": \"{{UUID_TestUser}}\",\r\n    \"type\": \"TestMarios\",\r\n    \"comment\": \"TestTestTest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/marios/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"marios",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete user\", function(){\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/delete/{{UUID}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"{{UUID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let myRequest = {",
+							"    url: 'localhost:8083/user/create',",
+							"    method: 'POST',",
+							"    header: {'content-type': 'application/json'},",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({",
+							"            \"firstName\": \"TestFirstName\",",
+							"            \"lastName\": \"TestLastName\",",
+							"            \"email\": \"TestEmai@gmail.com\",",
+							"            \"userName\": \"TestUserName\"",
+							"        })",
+							"    }",
+							"}",
+							"",
+							"pm.sendRequest(myRequest, afterPreRequest);",
+							"",
+							"function afterPreRequest(err, res) {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        console.log(res.json().uuid)",
+							"        pm.environment.set(\"UUID_TestUser\", res.json().uuid);",
+							"    }",
+							"}",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "UUID",
+			"value": ""
+		},
+		{
+			"key": "UUID_TestUser",
+			"value": ""
+		}
+	]
+}
