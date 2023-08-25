@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/marios")
+@CrossOrigin("*")
 public class MariosController {
 
     private final MariosService mariosService;
