@@ -12,12 +12,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class MyService {
-    private Set<User> userSet;
-    private Set<Team> teamSet;
-    private Set<Marios> mariosSet;
+    public Set<User> userSet;
+    public Set<Marios> mariosSet;
 
     public MyService() {
-        User u1 = new User(1, "Bartek", "Andree");
+        /*User u1 = new User(1, "Bartek", "Andree");
         User u2 = new User(2, "Kinga", "Banach");
         User u3 = new User(3, "Mateusz", "Zwierzlak");
         User u4 = new User(4, "Bartek", "Szymanski");
@@ -27,7 +26,7 @@ public class MyService {
         Marios m4 = new Marios(4, "Good job", "You are the best", u2, u1);
         Marios m5 = new Marios(5, "Thanks", "You are the best", u2, u3);
         this.userSet = Sets.newHashSet(u1,u2,u3,u4);
-        this.mariosSet = Sets.newHashSet(m1,m2,m3,m4,m5);
+        this.mariosSet = Sets.newHashSet(m1,m2,m3,m4,m5);*/
     }
 
     public void addMarios(int senderId, int receiverId, String type, String comment) {
